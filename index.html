@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Calculadora Totalplay</title>
+</head>
+
+<body>
+    <h1>Calculadora Totalplay</h1>
+    <p>Seleciona una formula para realizar el ajuste correspondiente a un cliente</p>
+
+    <button type="button" id="btnFormula1">Fallas en todos los servicios SIN adicionales contratados</button>
+    <button type="button" id="btnFormula2">Fallas en todos los servicios CON adicionales contratados</button>
+    <button type="button" id="btnFormula3">Falla en un solo servicio SIN adicionales contratados</button>
+    <button type="button" id="btnFormula4">Falla en un solo servicio CON adicionales contratados</button>
+
+    <h2 id="h2"></h2>
+
+    <section id="sectionFormulario">
+        <form id="formulario">
+            <input type="date" id="inputFechaInicial">
+            <input type="date" id="inputFechaFinal">
+            <input type="number" id="inputCostoDelPlanPP" placeholder="Costo del plan en pronto pago" min="0">
+            <input type="number" id="inputDescuentoDePorVida" placeholder="Descuento de por vida" min="0">
+
+            <div id="divAdicionales">
+                <div id="divAdicional">
+                    <input type="number" id="inputAdicional" placeholder="Adicional">
+                    <button type="button" id="btnAgregarAdicional">Agregar Adicional</button>
+                </div>
+            </div>
+
+            <div id="divPromociones">
+                <div id="divPromocion">
+                    <input type="number" id="inputPromocion" placeholder="Promocion">
+                    <button type="button">Agregar Promocion</button>
+                </div>
+            </div>
+
+            <div id="divSelectNumeroDeServicios">
+                <select id="selectNumeroDeServicios">
+                    <option value="0">Seleciona el numero de servicios</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <button type="button" id="btnCalcularAjuste">CALCULAR AJUSTE</button>
+            <br>
+            <br>
+            <span id="spanTotalAjustar"></span>
+        </form>
+    </section>
+</body>
+<script src="./index.js"></script>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Totalplay Calculadora</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <main>
+        <img class="logoTotalplay" src="/assets/logoTotalplayNegro.png" alt="">
+
+        <label for="tipoFalla" class="labelTipoFalla">Selecciona un tipo de falla</label>
+        <select id="tipoFalla" onchange="cambiarFormulario()">
+            <option value="">Selecciona una opción</option>
+            <option value="todos_sin">Falla en todos los servicios SIN adicionales</option>
+            <option value="todos_con">Falla en todos los servicios CON adicionales</option>
+            <option value="uno_sin">Falla en un solo servicio SIN adicionales</option>
+            <option value="uno_con">Falla en solo servicio CON adicionales</option>
+        </select>
+
+        <form id="formCalculadora" class="hidden">
+            <div class="mainDivDates">
+                <div class="divDates1">
+                    <div class="divDates">
+                        <label>Día Inicio</label>
+                        <input class="inputDate" type="date" id="fechaInicio" required onchange="calcularDias()">
+                    </div>
+
+                    <div class="divDates">
+                        <label>Día Final</label>
+                        <input class="inputDate" type="date" id="fechaFinal" required onchange="calcularDias()">
+                    </div>
+                </div>
+                <p><span id="displayDias">45</span>dias con falla</p>
+            </div>
+
+            <div class="divPpDXV">
+                <div class="divPpDXV2">
+                    <label>Costo del plan (Pronto Pago)</label>
+                    <input type="number" id="costoPlan" value="0" min="0" step="0.01">
+                </div>
+
+                <div class="divPpDXV2">
+                    <label>Descuento de por vida</label>
+                    <input type="number" id="descVida" value="0" min="0" step="0.01">
+                </div>
+            </div>
+
+            <div id="seccionServicios" class="hidden">
+                <label>Número de servicios</label>
+                <select id="numServicios">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div id="seccionPromociones" class="hidden">
+                <h4>Promociones (Máx 12)</h4>
+                <div id="contenedorPromociones"></div>
+                <button type="button" onclick="agregarCampo('Promociones')">+ Agregar Promoción</button>
+            </div>
+
+            <div id="seccionAdicionales" class="hidden">
+                <h4>Adicionales (Máx 12)</h4>
+                <div id="contenedorAdicionales"></div>
+                <button type="button" onclick="agregarCampo('Adicionales')">+ Agregar Adicional</button>
+            </div>
+
+            <br>
+            <button type="button" onclick="realizarCalculo()">CALCULAR AJUSTE</button>
+        </form>
+
+        <h2 id="resultado"></h2>
+    </main>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

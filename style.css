@@ -1,0 +1,19 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+button{
+    padding: 10px;
+    margin: 3px;
+}
+
+input{
+    padding: 10px;
+    margin-top: 10px;
+}
+
+select{
+    padding: 10px;
+    margin-top: 10px;
+}
