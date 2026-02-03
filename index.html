@@ -1,61 +1,83 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
     <title>Calculadora Totalplay</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <h1>Calculadora Totalplay</h1>
-    <p>Seleciona una formula para realizar el ajuste correspondiente a un cliente</p>
 
-    <button type="button" id="btnFormula1">Fallas en todos los servicios SIN adicionales contratados</button>
-    <button type="button" id="btnFormula2">Fallas en todos los servicios CON adicionales contratados</button>
-    <button type="button" id="btnFormula3">Falla en un solo servicio SIN adicionales contratados</button>
-    <button type="button" id="btnFormula4">Falla en un solo servicio CON adicionales contratados</button>
+    <main>
+        <img class="logoTotalplay" src="/assets/logoTotalplayNegro.png" alt="">
 
-    <h2 id="h2"></h2>
+        <label for="tipoFalla" class="labelTipoFalla">Selecciona un tipo de falla</label>
+        <select id="tipoFalla" onchange="cambiarFormulario()">
+            <option value="">Selecciona una opción</option>
+            <option value="todos_sin">Falla en todos los servicios SIN adicionales</option>
+            <option value="todos_con">Falla en todos los servicios CON adicionales</option>
+            <option value="uno_sin">Falla en un solo servicio SIN adicionales</option>
+            <option value="uno_con">Falla en solo servicio CON adicionales</option>
+        </select>
 
-    <section id="sectionFormulario">
-        <form id="formulario">
-            <input type="date" id="inputFechaInicial">
-            <input type="date" id="inputFechaFinal">
-            <input type="number" id="inputCostoDelPlanPP" placeholder="Costo del plan en pronto pago" min="0">
-            <input type="number" id="inputDescuentoDePorVida" placeholder="Descuento de por vida" min="0">
+        <form id="formCalculadora" class="hidden">
+            <div class="mainDivDates">
+                <div class="divDates1">
+                    <div class="divDates">
+                        <label>Día Inicio</label>
+                        <input class="inputDate" type="date" id="fechaInicio" required onchange="calcularDias()">
+                    </div>
 
-            <div id="divAdicionales">
-                <div id="divAdicional">
-                    <input type="number" id="inputAdicional" placeholder="Adicional">
-                    <button type="button" id="btnAgregarAdicional">Agregar Adicional</button>
+                    <div class="divDates">
+                        <label>Día Final</label>
+                        <input class="inputDate" type="date" id="fechaFinal" required onchange="calcularDias()">
+                    </div>
+                </div>
+                <p><span id="displayDias">45</span>dias con falla</p>
+            </div>
+
+            <div class="divPpDXV">
+                <div class="divPpDXV2">
+                    <label>Costo del plan (Pronto Pago)</label>
+                    <input type="number" id="costoPlan" value="0" min="0" step="0.01">
+                </div>
+
+                <div class="divPpDXV2">
+                    <label>Descuento de por vida</label>
+                    <input type="number" id="descVida" value="0" min="0" step="0.01">
                 </div>
             </div>
 
-            <div id="divPromociones">
-                <div id="divPromocion">
-                    <input type="number" id="inputPromocion" placeholder="Promocion">
-                    <button type="button">Agregar Promocion</button>
-                </div>
-            </div>
-
-            <div id="divSelectNumeroDeServicios">
-                <select id="selectNumeroDeServicios">
-                    <option value="0">Seleciona el numero de servicios</option>
+            <div id="seccionServicios" class="hidden">
+                <label>Número de servicios</label>
+                <select id="numServicios">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
             </div>
 
-            <button type="button" id="btnCalcularAjuste">CALCULAR AJUSTE</button>
+            <div id="seccionPromociones" class="hidden">
+                <h4>Promociones (Máx 12)</h4>
+                <div id="contenedorPromociones"></div>
+                <button type="button" onclick="agregarCampo('Promociones')">+ Agregar Promoción</button>
+            </div>
+
+            <div id="seccionAdicionales" class="hidden">
+                <h4>Adicionales (Máx 12)</h4>
+                <div id="contenedorAdicionales"></div>
+                <button type="button" onclick="agregarCampo('Adicionales')">+ Agregar Adicional</button>
+            </div>
+
             <br>
-            <br>
-            <span id="spanTotalAjustar"></span>
+            <button type="button" onclick="realizarCalculo()">CALCULAR AJUSTE</button>
         </form>
-    </section>
+
+        <h2 id="resultado"></h2>
+    </main>
+
+    <script src="./index.js"></script>
 </body>
-<script src="./index.js"></script>
 
 </html>
