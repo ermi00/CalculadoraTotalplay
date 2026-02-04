@@ -12,7 +12,7 @@
     <main>
         <img class="logoTotalplay" src="./assets/logoTotalplayColor.png" alt="">
 
-        <label for="tipoFalla" class="labelTipoFalla">Selecciona un tipo de falla</label>
+        <label for="tipoFalla" class="labelTipoFalla">Selecciona un tipo de falla para realizar el ajuste</label>
         <select id="tipoFalla" onchange="cambiarFormulario()">
             <option value="">Selecciona una opción</option>
             <option value="todos_sin">Falla en todos los servicios SIN adicionales</option>
@@ -23,7 +23,9 @@
 
         <form id="formCalculadora" class="hidden">
             <div class="mainDivDates">
+                <p><span id="displayDias">45</span> dias con falla</p>
                 <div class="divDates1">
+
                     <div class="divDates">
                         <label>Día Inicio</label>
                         <input class="inputDate" type="date" id="fechaInicio" required onchange="calcularDias()">
@@ -34,12 +36,12 @@
                         <input class="inputDate" type="date" id="fechaFinal" required onchange="calcularDias()">
                     </div>
                 </div>
-                <p><span id="displayDias">45</span>dias con falla</p>
+
             </div>
 
             <div class="divPpDXV">
                 <div class="divPpDXV2">
-                    <label>Costo del plan (Pronto Pago)</label>
+                    <label>Costo del plan en pronto pago</label>
                     <input type="number" id="costoPlan" value="0" min="0" step="0.01">
                 </div>
 
@@ -58,20 +60,22 @@
                 </select>
             </div>
 
-            <div id="seccionPromociones" class="hidden">
-                <h4>Promociones (Máx 12)</h4>
-                <div id="contenedorPromociones"></div>
-                <button type="button" onclick="agregarCampo('Promociones')">+ Agregar Promoción</button>
-            </div>
+            <div class="divSeccionesAdicionalesPromociones">
+                <div id="seccionPromociones" class="hidden">
+                    <h4>Promociones</h4>
+                    <div id="contenedorPromociones"></div>
+                    <button type="button" onclick="agregarCampo('Promociones')">Agregar Promoción</button>
+                </div>
 
-            <div id="seccionAdicionales" class="hidden">
-                <h4>Adicionales (Máx 12)</h4>
-                <div id="contenedorAdicionales"></div>
-                <button type="button" onclick="agregarCampo('Adicionales')">+ Agregar Adicional</button>
+                <div id="seccionAdicionales" class="hidden">
+                    <h4>Adicionales</h4>
+                    <div id="contenedorAdicionales"></div>
+                    <button type="button" onclick="agregarCampo('Adicionales')">Agregar Adicional</button>
+                </div>
             </div>
 
             <br>
-            <button type="button" onclick="realizarCalculo()">CALCULAR AJUSTE</button>
+            <button type="button" id="btnCalcularAjuste" onclick="realizarCalculo()">CALCULAR AJUSTE</button>
         </form>
 
         <h2 id="resultado"></h2>

@@ -1,16 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
+    font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 40px;
 }
 
 main {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    padding: 20px;
-    border-radius: 25px;
-    width: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,35 +31,38 @@ main {
 }
 
 input {
-    width: 100%;
-    padding: 10px;
-    margin: 5px;
-    margin-right: 10px;
-    border-radius: 25px;
-    padding-left: 30px;
+    width: 250px;
+    padding: 10px 20px;
+    padding-left: 25px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.307);
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 button {
     padding: 15px 35px;
-    margin: 5px;
-    border-radius: 100px;
+    border-radius: 5px;
     width: 100%;
-    background: transparent linear-gradient(260deg, #1988ff, #0a217e) 0 0 no-repeat padding-box;
+    background-color: #1988ff;
     color: white;
     font-weight: bold;
     border: none;
     transition: 0.5s;
+    margin: 2px;
 }
 
 button:hover {
     transition: 0.5s;
+    background-color: #005dc1;
 }
 
 
 select {
-    border-radius: 25px;
-    width: 100%;
-    padding: 10px 10px;
+    border-radius: 5px;
+    width: 30%;
+    padding: 15px 25px;
     margin-bottom: 20px;
 }
 
@@ -69,11 +72,12 @@ select {
 
 .mainDivDates {
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
+    width: 100%;
 }
 
 .divDates {
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,8 +88,9 @@ select {
 }
 
 .divDates1 {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 p {
@@ -94,7 +99,8 @@ p {
 
 .divPpDXV {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .divPpDXV2 {
@@ -104,8 +110,7 @@ p {
 }
 
 .inputDate {
-    width: 200px;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 .dinamico-item {
@@ -113,14 +118,84 @@ p {
 }
 
 .logoTotalplay {
-    width: 50%;
+    width: 30%;
 }
 
-.labelTipoFalla{
+.labelTipoFalla {
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-form{
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    padding: 20px;
+    padding-bottom: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 25px;
+}
+
+#btnCalcularAjuste {
+    width: 95%;
+    border-radius: 5px;
+}
+
+.divSeccionesAdicionalesPromociones {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+.dinamico-item button {
+    background-color: rgb(255, 79, 79);
+}
+
+.dinamico-item input {
+    margin: 5px;
+    margin-right: 5px;
+}
+
+.contenedorPromociones input {
+    width: 80%;
+}
+
+.contenedorPromociones button {
+    width: 20%;
+}
+
+.divDates input {
+    width: 80%;
+}
+
+.divPpDXV2 {
+    width: 50%;
+}
+
+.divPpDXV2 input {
+    width: 80%;
+}
+
+.seccionPromociones {
+    width: 50%;
+}
+
+.seccionAdicionales {
+    width: 50%;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#seccionServicios{
+    width: 95%;
+}
+
+#numServicios{
+    margin-top: 10px;
     width: 100%;
 }
